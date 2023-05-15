@@ -1,12 +1,12 @@
-﻿@model List<ContactModel>
+﻿@model List<BrandModel>
 @{
-    ViewData["Title"] = "Listagem de Contatos";
+    ViewData["Title"] = "modelos de veículos";
 }
 
 <div class="text-center">
 
     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-        <a class="btn btn-primary" asp-controller="Contato" asp-action="Criar" role="button">Adicionar novo contato</a>
+        <a class="btn btn-primary" asp-controller="Brands" asp-action="Create" role="button">Adicionar nova marca de veículo</a>
     </div>
 
     <br />
@@ -29,32 +29,32 @@
 
     <br />
 
-    <h1 class="display-4">Listagem de contatos</h1>
+    <h1 class="display-4">modelos de veículos</h1>
 
-    <table id="table-contatos" class="display" style="width:100%">
+    <table id="table-vehicles-brands" class="display" style="width:100%">
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Email</th>
-                <th scope="col">Celular</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Nacional</th>
+                <th scope="col">Status</th>
                 <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
             @if (Model != null && Model.Any())
             {
-                foreach (var contato in Model)
+                foreach (var brand in Model)
                 {
                     <tr>
-                        <th scope="row">@contato.Id</th>
-                        <td>@contato.Name</td>
-                        <td>@contato.Email</td>
-                        <td>@contato.NumberPhone</td>
+                        <th scope="row">@brand.Id</th>
+                        <td>@brand.Name</td>
+                        <td>@brand.National</td>
+                        <td>@brand.Active</td>
                         <td>
                             <div class="btn-group" role="group">
-                                <a role="button" asp-action="Editar" asp-controller="Contato" asp-route-id="@contato.Id" class="btn btn-primary">Editar</a>
-                                <a role="button" asp-action="ApagarConfirmacao" asp-controller="Contato" asp-route-id="@contato.Id" class="btn btn-danger">Apagar</a>
+                                <a role="button" asp-action="Edit" asp-controller="Brands" asp-route-id="@brand.Id" class="btn btn-primary">Editar</a>
+                                <a role="button" asp-action="DeleteConfirmation" asp-controller="Brands" asp-route-id="@brand.Id" class="btn btn-danger">Apagar</a>
                             </div>
                         </td>
                     </tr>
@@ -62,7 +62,7 @@
             }
             else
             {
-                <tr class="odd"><td valign="top" colspan="5">Nenhum contato encontrado</td></tr>
+                <tr class="odd"><td valign="top" colspan="5">Nenhuma marca encontrada</td></tr>
             }
         </tbody>
     </table>

@@ -1,6 +1,6 @@
 using System;
 
-namespace ControleDeContatos.Models
+namespace BrandsCrud.Models
 {
     public class ErrorViewModel
     {

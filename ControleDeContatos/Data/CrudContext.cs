@@ -1,8 +1,8 @@
-﻿using ControleDeContatos.Data.Map;
-using ControleDeContatos.Models;
+﻿using BrandsCrud.Data.Map;
+using BrandsCrud.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace ControleDeContatos.Data
+namespace BrandsCrud.Data
 {
     public class CrudContext : DbContext
     {
@@ -11,12 +11,11 @@ namespace ControleDeContatos.Data
         {
         }
 
-        public DbSet<ContactModel> Contacts { get; set; }
-        public DbSet<UserModel> Users { get; set; }
+        public DbSet<BrandModel> Brands { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new ContactMap());
+            modelBuilder.ApplyConfiguration(new BrandMap());
 
             base.OnModelCreating(modelBuilder);
         }

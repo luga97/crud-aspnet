@@ -1,6 +1,5 @@
-using ControleDeContatos.Data;
-using ControleDeContatos.Helper;
-using ControleDeContatos.Repositorio;
+using BrandsCrud.Data;
+using BrandsCrud.Repositorio;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -9,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace ControleDeContatos
+namespace BrandsCrud
 {
     public class Startup
     {
@@ -31,10 +30,8 @@ namespace ControleDeContatos
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-            services.AddScoped<IContactRepository, ContatoRepositorio>();
-            services.AddScoped<IUserRepository, UsuarioRepositorio>();
-            services.AddScoped<Helper.ISession, Session>();
-            services.AddScoped<IEmail, Email>();
+            services.AddScoped<IBrandsRepository, VehiclesBrandsRepository>();
+
 
             services.AddSession(o =>
             {
@@ -61,15 +58,11 @@ namespace ControleDeContatos
 
             app.UseRouting();
 
-            app.UseAuthorization();
-
-            app.UseSession();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Login}/{action=Index}/{id?}");
+                    pattern: "{controller=Brands}/{action=Index}/{id?}");
             });
         }
     }

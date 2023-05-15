@@ -4,15 +4,12 @@
 // Write your JavaScript code.
 
 $(document).ready(function () {
-    getDatatable('#table-contatos');
-    getDatatable('#table-usuarios');
+    getDatatable('#table-vehicles-brands');
 
     $('.btn-total-contatos').click(function () {
-        var usuarioId = $(this).attr('usuario-id');
-
         $.ajax({
             type: 'GET',
-            url: '/Usuario/ListarContatosPorUsuarioId/' + usuarioId,
+            url: '/VehiclesBrands/FindAll/',
             success: function (result) {
                 $("#listaContatosUsuario").html(result);
                 $('#modalContatosUsuario').modal();
