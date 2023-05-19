@@ -1,5 +1,6 @@
 ﻿using BrandsCrud.Data.Map;
 using BrandsCrud.Models;
+using ControleDeContatos.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace BrandsCrud.Data
@@ -12,6 +13,7 @@ namespace BrandsCrud.Data
         }
 
         public DbSet<BrandModel> Brands { get; set; }
+        public DbSet<ClientModel> Clients { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

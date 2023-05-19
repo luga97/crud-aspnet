@@ -1,7 +1,7 @@
 ﻿using BrandsCrud.Models;
 using System.Collections.Generic;
 
-namespace BrandsCrud.Repositorio
+namespace BrandsCrud.Repository
 {
     public interface IBrandsRepository
     {

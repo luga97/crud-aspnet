@@ -1,16 +1,19 @@
 ﻿using BrandsCrud.Data;
 using BrandsCrud.Models;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BrandsCrud.Repositorio
+
+namespace BrandsCrud.Repository
 {
-    public class VehiclesBrandsRepository : IBrandsRepository
+    public class BrandsRepository : IBrandsRepository
     {
         private readonly CrudContext _context;
 
-        public VehiclesBrandsRepository(CrudContext context)
+        public BrandsRepository(CrudContext context)
         {
             this._context = context;
         }

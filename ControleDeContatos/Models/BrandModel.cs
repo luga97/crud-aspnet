@@ -5,6 +5,7 @@ namespace BrandsCrud.Models
 {
     public class BrandModel
     {
+        [Key]
         public int Id { get; set; }
         [Required(ErrorMessage = "Digite o nome da marca.")]
         public string Name { get; set; }

@@ -1,6 +1,6 @@
 ﻿
 using BrandsCrud.Models;
-using BrandsCrud.Repositorio;
+using BrandsCrud.Repository;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;

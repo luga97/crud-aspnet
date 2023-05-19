@@ -1,5 +1,6 @@
 using BrandsCrud.Data;
-using BrandsCrud.Repositorio;
+using BrandsCrud.Repository;
+using ControleDeContatos.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -30,7 +31,8 @@ namespace BrandsCrud
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-            services.AddScoped<IBrandsRepository, VehiclesBrandsRepository>();
+            services.AddScoped<IBrandsRepository, BrandsRepository>();
+            services.AddScoped<IClientsRepository, ClientsRepository>();
 
 
             services.AddSession(o =>
